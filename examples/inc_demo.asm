@@ -1,0 +1,4 @@
+  PSH 255
+  INC
+  SAY
+  HLT

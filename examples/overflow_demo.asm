@@ -1,0 +1,5 @@
+  PSH 250
+  PSH 10
+  ADD
+  SAY
+  HLT

@@ -1,0 +1,5 @@
+  PSH 0b10100000
+  PSH 0b00001111
+  OR
+  SAY
+  HLT

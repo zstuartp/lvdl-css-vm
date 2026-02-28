@@ -1,0 +1,5 @@
+  PSH 42
+  DUP
+  ADD
+  SAY
+  HLT

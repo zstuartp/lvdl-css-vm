@@ -1,0 +1,4 @@
+  PSH 0b01010101
+  NOT
+  SAY
+  HLT

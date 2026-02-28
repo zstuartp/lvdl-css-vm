@@ -1,0 +1,4 @@
+  PSH 0b10101010
+  SHL
+  SAY
+  HLT

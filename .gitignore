@@ -1,0 +1,15 @@
+# Build outputs
+/lvdlc
+
+# Generated HTML at repo root (use examples/*.html for committed outputs)
+/*.html
+
+# Go test binaries
+*.test
+
+# macOS
+.DS_Store
+
+# Emacs lock/backup files
+\#*#
+*~
