@@ -274,7 +274,7 @@ func TestRuntime8OptimizationToggle(t *testing.T) {
 	if len(pruned.String()) >= len(full.String()) {
 		t.Fatalf("expected pruned output to be smaller: pruned=%d full=%d", len(pruned.String()), len(full.String()))
 	}
-	if strings.Count(pruned.String(), `class="stk-row"`) >= strings.Count(full.String(), `class="stk-row"`) {
+	if strings.Count(pruned.String(), `class="stk-row `) >= strings.Count(full.String(), `class="stk-row `) {
 		t.Fatal("expected pruned output to render fewer stack rows")
 	}
 	if strings.Count(pruned.String(), `class="pl" data-p=`) >= strings.Count(full.String(), `class="pl" data-p=`) {

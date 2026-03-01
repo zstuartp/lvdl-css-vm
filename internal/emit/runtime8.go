@@ -710,7 +710,8 @@ input[type="radio"]{position:absolute;opacity:0;pointer-events:none;width:0;heig
 .wz label:hover{background:var(--highlight-bg)}
 .bus-idle{display:none;position:absolute;inset:0;align-items:center;justify-content:center;font-size:12px;color:var(--text-muted)}
 .stack{display:grid;gap:4px;max-height:260px;overflow:auto}
-.stk-row{border:1px solid var(--border);border-radius:8px;padding:4px 8px;font-size:12px}
+.stack-empty{display:none;border:1px dashed var(--border);border-radius:8px;padding:4px 8px;font-size:12px;color:var(--text-muted)}
+.stk-row{display:none;border:1px solid var(--border);border-radius:8px;padding:4px 8px;font-size:12px}
 .stk-row .bit span{display:none}
 .stk-dec{display:inline-block;min-width:3ch;text-align:right;font-weight:700;color:var(--text-muted);margin-left:8px}
 .stk-dec::before{content:"0"}
@@ -734,6 +735,20 @@ input[type="radio"]{position:absolute;opacity:0;pointer-events:none;width:0;heig
 	for pc := 0; pc < plan.visibleProgramWords(); pc++ {
 		fmt.Fprintf(&b, "body%s .id .i%d{display:inline}\n", has(pcID(pc)), pc)
 		fmt.Fprintf(&b, "body%s .pl[data-p=\"%d\"]{border-left-color:#2965f1;background:var(--highlight-bg)}\n", has(pcID(pc)), pc)
+	}
+
+	// Stack row visibility by SP. Rows above SP are hidden to avoid
+	// showing stale popped values as active stack content.
+	visibleRows := plan.visibleStackCells()
+	fmt.Fprintf(&b, "body%s .stack-empty{display:block}\n", has(spID(0)))
+	for sp := 1; sp <= runtimeStackSize; sp++ {
+		limit := sp
+		if limit > visibleRows {
+			limit = visibleRows
+		}
+		for cell := 0; cell < limit; cell++ {
+			fmt.Fprintf(&b, "body%s .sr%d{display:block}\n", has(spID(sp)), cell)
+		}
 	}
 
 	// Stack bit displays

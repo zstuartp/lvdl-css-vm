@@ -315,9 +315,10 @@ func writeLiveHTML(
 	io.WriteString(&doc, "</div>\n")
 
 	io.WriteString(&doc, "<h3>Stack Bits</h3>\n<div class=\"stack\">\n")
+	io.WriteString(&doc, "<div class=\"stack-empty\">empty</div>\n")
 	visibleCells := plan.visibleStackCells()
 	for cell := 0; cell < visibleCells; cell++ {
-		fmt.Fprintf(&doc, "<div class=\"stk-row\">[%d] ", cell)
+		fmt.Fprintf(&doc, "<div class=\"stk-row sr%d\">[%d] ", cell, cell)
 		for bit := runtimeWordBits - 1; bit >= 0; bit-- {
 			fmt.Fprintf(&doc, "<span class=\"bit\"><span class=\"k%d%d0\">0</span><span class=\"k%d%d1\">1</span></span>", cell, bit, cell, bit)
 		}
