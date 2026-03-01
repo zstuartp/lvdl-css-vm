@@ -16,6 +16,12 @@ The current runtime is intentionally minimal:
 
 > Requires a modern browser with `:has()` support.
 
+## Recorded Demo
+
+JNZ/JMP control-flow run (recorded GIF from `*-js-clock.html`):
+
+![LVDL-VM recorded demo](docs/assets/live-demo.gif)
+
 ## What It Implements
 
 - Word format: 16-bit instruction words (`[opcode:8 | operand:8]`)
