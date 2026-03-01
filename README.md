@@ -1,4 +1,4 @@
-# LVDL-VM
+# LVDL-CSS-VM
 
 A small 8-bit stack machine that executes in HTML+CSS only.
 
@@ -20,7 +20,7 @@ The current runtime is intentionally minimal:
 
 JNZ/JMP control-flow run (recorded GIF from `*-js-clock.html`):
 
-![LVDL-VM recorded demo](docs/assets/live-demo.gif)
+![LVDL-CSS-VM recorded demo](docs/assets/live-demo.gif)
 
 ## What It Implements
 
